@@ -4,4 +4,15 @@ class Api::V1::UsersController < ApplicationController
         render json: @users, only: [:name]#, include: :books
         #books to a relationship in ur database, can call all the books related to a user
     end
+
+    def create
+        @new = User.create(user_params)
+        puts @new
+    end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:name)
+    end
 end
