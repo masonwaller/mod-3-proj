@@ -1,9 +1,53 @@
-fetch("http://127.0.0.1:3000/api/v1/users")
-.then(res => res.json())
-.then(res => displayUsers(res))
+// fetch("http://127.0.0.1:3000/api/v1/users")
+// .then(res => res.json())
+// .then(res => displayUsers(res))
 
-function displayUsers(res) {
-    res.forEach(user => {
-        console.log(user.name)
+window.addEventListener("DOMContentLoaded", (e) => {
+    const login = document.getElementById("name");
+    let arr;
+
+    fetch("http://127.0.0.1:3000/api/v1/users")
+    .then(res => res.json())
+    .then(res => {
+        arr = res;
+        console.log(arr)
     })
-}
+    
+    login.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let nameInput = document.getElementById("name_input").value; 
+        let user = arr.find(user => nameInput == user.name)
+        
+        if (user) {
+            console.log(user)
+        }
+        else {
+            fetch(`http://127.0.0.1:3000/api/v1/users`, {
+                method: "POST",
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name: nameInput})
+            })
+            
+        }
+        displayInstructions()
+    })
+    function displayInstructions() {
+        let title = document.getElementById("title")
+        let instructions = document.getElementById("instructions")
+        
+        login.remove()
+        title.innerHTML = "Instructions:"
+        instructions.innerHTML = "You will have around 10-15 seconds of a movie clip played. <br> Your job is to click the answer of the movie title.  <br> Your score will be tallied up at the end."
+    }
+
+
+
+
+
+
+
+
+})
