@@ -26,7 +26,6 @@ Video.create(url: "https://www.youtube.com/embed/RD2YJrvd71Y?start=0&end=15") # 
 Video.create(url: "https://www.youtube.com/embed/H9xytMepcj8?start=30&end=45") # Return of the Jedi
 Video.create(url: "https://www.youtube.com/embed/mgr2tLYYha4?start=80&end=95") # The Hunger Games
 Video.create(url: "https://www.youtube.com/embed/0-HM2VCdrC0?start=30&end=45") # 27 Dresses
-Video.create(url: "https://www.youtube.com/embed/4V9kKrkUJbE?start=40&end=55") # Maleficent
 Video.create(url: "https://www.youtube.com/embed/KMX5zkYnGB0?start=25&end=40") # Mulan
 Video.create(url: "https://www.youtube.com/embed/vDEBMho16Bg?start=25&end=40") # Gordy
 Video.create(url: "https://www.youtube.com/embed/7S2ffMUk7iI?start=0&end=15") # The Little Rascals
