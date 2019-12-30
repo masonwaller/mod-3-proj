@@ -1,3 +1,12 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
 # Videos
 Video.create(url: "https://www.youtube.com/embed/GQ5ICXMC4xY?start=5&end=15") # Gone With The Wind
 Video.create(url: "https://www.youtube.com/embed/x2WK_eWihdU?start=0&end=15") # Pulp Fiction
@@ -101,10 +110,10 @@ Answer.create(answer: "The Benchwarmers", correct: 0, video_id: 14)
 Answer.create(answer: "The Waterboy", correct: 1, video_id: 14)
 Answer.create(answer: "Mr. Deeds", correct: 0, video_id: 14)
 
-Answer.create(answer: "World War Z", correct: , video_id: 15)
+Answer.create(answer: "World War Z", correct: 0, video_id: 15)
 Answer.create(answer: "I Am Legend", correct: 1, video_id: 15)
-Answer.create(answer: "The Martian", correct: , video_id: 15)
-Answer.create(answer: "Gemini Man", correct: , video_id: 15)
+Answer.create(answer: "The Martian", correct: 0, video_id: 15)
+Answer.create(answer: "Gemini Man", correct: 0, video_id: 15)
 
 Answer.create(answer: "A Walk to Remember", correct: 1, video_id: 16)
 Answer.create(answer: "The Last Song", correct: 0, video_id: 16)
@@ -180,4 +189,5 @@ Answer.create(answer: "General Spanky", correct: 0, video_id: 30)
 Answer.create(answer: "The Little Rascals", correct: 1, video_id: 30)
 Answer.create(answer: "The Sandlot", correct: 0, video_id: 30)
 Answer.create(answer: "Little Giants", correct: 0, video_id: 30)
+
 
