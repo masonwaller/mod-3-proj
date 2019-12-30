@@ -17,7 +17,7 @@ Video.create(url: "https://www.youtube.com/embed/YKRnEOUxZm0?start=50&end=105") 
 Video.create(url: "https://www.youtube.com/embed/QbmDpEhAp48?start=2&end=17") # Django
 Video.create(url: "https://www.youtube.com/embed/Z2WZrxuwDhs?start=0&end=15") # The Breakfast Club
 Video.create(url: "https://www.youtube.com/embed/e1DnltskkWk?start=100&end=115") # Good Will Hunting
-Video.create(url: "https://www.youtube.com/embed/AHkGppagfgs?start=35&end=50") # Joker
+Video.create(url: "https://www.youtube.com/embed/NgrM4_JMi9w?start=25&end=40") # Joker
 Video.create(url: "https://www.youtube.com/embed/yMRmV1Sj6j4?start=5&end=20") # The Shining
 Video.create(url: "https://www.youtube.com/embed/C-VskbU-BgU?start=105&end=120") # Black Panther
 Video.create(url: "https://www.youtube.com/embed/UZb2NOHPA2A?start=65&end=80") # The Pursuit of Happiness
