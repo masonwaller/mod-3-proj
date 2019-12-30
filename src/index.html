@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Movie Trivia</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      html {
+        background-image: url("movie.png");
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        /* background-size: cover; */
+        background-size: 1080px 800px, cover;
+      }
+    </style>
     <script src="./index.js"></script>
-</head>
-<body class="jumbotron text-center">
-    <h1 class="text-primary" id="title">Guess That Movie!</h1><br><br><br><br><br><br><br><br><br><br><br>
-    <h4 id="instructions">Please enter your name:</h4><br>
-    <form id="name" method= "post">
-        <input type="text" id="name_input" name="name"><br><br>
-        <input type="submit" value="Submit">
+  </head>
+  <body style="text-align: center;">
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <h1 id="title">Guess That Movie!</h1>
+    <h4 id="instructions">Please enter your name to begin:</h4>
+    <form id="name" method="post">
+      <input type="text" id="name_input" name="name" /><br /><br />
+      <input type="submit" value="Submit" />
     </form>
-</body>
+  </body>
 </html>
