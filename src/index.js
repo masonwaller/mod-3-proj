@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   const login = document.getElementById("name");
   let arr;
   let user;
+  let score = 0;
 
   fetch("http://127.0.0.1:3000/api/v1/users")
     .then(res => res.json())
@@ -28,7 +29,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ name: nameInput })
-      }).then(
+      }).then( () =>
         fetch("http://127.0.0.1:3000/api/v1/users")
           .then(res => res.json())
           .then(res => {
@@ -70,11 +71,37 @@ window.addEventListener("DOMContentLoaded", (e) => {
         let body = document.getElementById("cool")
         let title = document.getElementById("title")
         let instructions = document.getElementById("instructions")
+        let div = document.createElement("DIV")
+        let div2 = document.createElement("DIV")
+        let div3 = document.createElement("DIV")
+
         body.removeChild(title)
         body.removeChild(instructions)
+        body.appendChild(div)
+        div.appendChild(div3)
+        div.appendChild(div2)
 
-        body.innerHTML = `<iframe width="560" height="315" src= ${videos[Math.floor ( Math.random() * videos.length )].url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 
+        let vid = videos[Math.floor ( Math.random() * videos.length )]
+        let ans = vid.answers
+        let correct = ans.find(element => element.correct == 1)
+        let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
+        
+        div3.innerHTML = v1
+
+        for (i=0;i<ans.length; i++) {
+            let but = document.createElement("BUTTON")
+            div2.appendChild(but)
+            but.innerHTML = ans[i].answer
+
+            but.addEventListener("click", (e) => {
+                e.preventDefault()
+                if (but.innerHTML == correct.answer) {
+                    score += 1
+                }
+                console.log(score)
+            })
+        }
     }
   
 })
