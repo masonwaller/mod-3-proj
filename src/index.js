@@ -11,7 +11,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
     .then(res => res.json())
     .then(res => {
         arr = res;
-        console.log(arr)
     })
     
     login.addEventListener("submit", (event) => {
@@ -54,8 +53,16 @@ window.addEventListener("DOMContentLoaded", (e) => {
         })
     }
 
+    let videos;
+    fetch("http://127.0.0.1:3000/api/v1/videos")
+    .then(res => res.json())
+    .then(res => {
+        videos = res;
+        console.log(videos)
+    })
+
     function displayMovies() {
-        console.log("HI")
+        
     }
 
 
