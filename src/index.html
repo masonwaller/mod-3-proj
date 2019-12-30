@@ -8,19 +8,21 @@
     <style>
       html {
         background-image: url("movie.png");
-        -webkit-background-size: cover;
+        /* -webkit-background-size: cover;
         -moz-background-size: cover;
-        -o-background-size: cover;
+        -o-background-size: cover; */
         /* background-size: cover; */
-        background-size: 1080px 800px, cover;
+        /* background-size: 1080px 800px, cover; */
+        background-size: cover;
+        background-repeat: no-repeat;
       }
     </style>
     <script src="./index.js"></script>
   </head>
   <body id="cool" style="text-align: center;">
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <h1 id="title">Guess That Movie!</h1>
-    <h4 id="instructions">Please enter your name to begin:</h4>
+    <h1 style="font-size:75px" id="title">Guess That Movie!</h1>
+    <h3 id="instructions">Please enter your name to begin:</h3>
     <form id="name" method="post">
       <input type="text" id="name_input" name="name" /><br /><br />
       <input type="submit" value="Submit" />
