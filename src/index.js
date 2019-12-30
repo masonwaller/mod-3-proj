@@ -2,7 +2,7 @@
 // .then(res => res.json())
 // .then(res => displayUsers(res))
 
-window.addEventListener("DOMContentLoaded", e => {
+window.addEventListener("DOMContentLoaded", (e) => {
   const login = document.getElementById("name");
   let arr;
   let user;
@@ -11,9 +11,9 @@ window.addEventListener("DOMContentLoaded", e => {
     .then(res => res.json())
     .then(res => {
       arr = res;
-    });
+    })
 
-  login.addEventListener("submit", event => {
+  login.addEventListener("submit", (event) => {
     event.preventDefault();
     let nameInput = document.getElementById("name_input").value;
     user = arr.find(user => nameInput == user.name);
@@ -43,29 +43,40 @@ window.addEventListener("DOMContentLoaded", e => {
     let title = document.getElementById("title");
     let instructions = document.getElementById("instructions");
     let butt = document.createElement("button");
-
+    
     butt.id = "button";
     butt.innerHTML = "Next";
     login.remove();
     title.innerHTML = "Instructions:";
     instructions.innerHTML =
-      "You will have around 10-15 seconds of a movie clip played. <br> Your job is to click the answer of the movie title.  <br> Your score will be tallied up at the end.<br><br><br>";
+      "You will have 10 seconds of a movie clip played. <br> Your job is to click the answer of the movie title.  <br> Your score will be tallied up at the end.<br><br><br>";
     instructions.appendChild(butt);
 
-    butt.addEventListener("click", e => {
+    butt.addEventListener("click", (e) => {
       e.preventDefault();
       displayMovies();
       console.log(user);
     });
   }
-
-  let videos;
-  fetch("http://127.0.0.1:3000/api/v1/videos")
+    let videos;
+    fetch("http://127.0.0.1:3000/api/v1/videos")
     .then(res => res.json())
     .then(res => {
-      videos = res;
-      console.log(videos);
-    });
+        videos = res;
+        console.log(videos)
+    })
 
-  function displayMovies() {}
-});
+    function displayMovies() {
+        let body = document.getElementById("cool")
+        let title = document.getElementById("title")
+        let instructions = document.getElementById("instructions")
+        body.removeChild(title)
+        body.removeChild(instructions)
+
+        body.innerHTML = `<iframe width="560" height="315" src= ${videos[Math.floor ( Math.random() * videos.length )].url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+
+    }
+  
+})
+
+
