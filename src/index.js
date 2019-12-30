@@ -30,8 +30,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
                 'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({name: nameInput})
-            })
-            
+            }).then(fetch("http://127.0.0.1:3000/api/v1/users").then(res => res.json()).then(res => {user = res[res.length -1]}))
         }
         displayInstructions()
     })
@@ -47,14 +46,16 @@ window.addEventListener("DOMContentLoaded", (e) => {
         title.innerHTML = "Instructions:"
         instructions.innerHTML = "You will have around 10-15 seconds of a movie clip played. <br> Your job is to click the answer of the movie title.  <br> Your score will be tallied up at the end.<br><br>"
         instructions.appendChild(butt)
-
+        
         butt.addEventListener("click", (e) => {
+            e.preventDefault()
             displayMovies()
+            console.log(user)
         })
     }
 
     function displayMovies() {
-        console.log(user)
+        console.log("HI")
     }
 
 
