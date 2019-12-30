@@ -62,7 +62,14 @@ window.addEventListener("DOMContentLoaded", (e) => {
     })
 
     function displayMovies() {
-        
+        let body = document.getElementById("cool")
+        let title = document.getElementById("title")
+        let instructions = document.getElementById("instructions")
+        body.removeChild(title)
+        body.removeChild(instructions)
+
+        body.innerHTML = `<iframe width="560" height="315" src= ${videos[Math.floor ( Math.random() * videos.length )].url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+
     }
 
 
