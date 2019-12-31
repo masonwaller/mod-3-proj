@@ -80,6 +80,8 @@ window.addEventListener("DOMContentLoaded", (e) => {
         body.appendChild(div)
         div.appendChild(div3)
         div.appendChild(div2)
+        div2.setAttribute("id", "dope")
+        div3.setAttribute("id", "sweet")
 
 
         let vid = videos[Math.floor ( Math.random() * videos.length )]
@@ -87,10 +89,12 @@ window.addEventListener("DOMContentLoaded", (e) => {
         let correct = ans.find(element => element.correct == 1)
         let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
         
+
         div3.innerHTML = v1
 
         for (i=0;i<ans.length; i++) {
             let but = document.createElement("BUTTON")
+            but.classList.add("button")
             div2.appendChild(but)
             but.innerHTML = ans[i].answer
 
@@ -100,10 +104,52 @@ window.addEventListener("DOMContentLoaded", (e) => {
                     score += 1
                 }
                 console.log(score)
+                display2()
             })
         }
     }
-  
+  function display2() {
+    var paras = document.getElementsByClassName('button');
+    while(paras[0]) {
+    paras[0].parentNode.removeChild(paras[0]);
+    }
+    let div3 = document.getElementById("sweet")
+    let div2 = document.getElementById("dope")
+
+    let vid = videos[Math.floor ( Math.random() * videos.length )]
+    let ans = vid.answers
+    let correct = ans.find(element => element.correct == 1)
+    let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
+    
+
+    div3.innerHTML = v1
+
+    for (i=0;i<ans.length; i++) {
+        let but = document.createElement("BUTTON")
+        div2.appendChild(but)
+        but.classList.add("button")
+        but.innerHTML = ans[i].answer
+
+        but.addEventListener("click", (e) => {
+            e.preventDefault()
+            if (but.innerHTML == correct.answer) {
+                score += 1
+            }
+            console.log(score)
+            display3()
+        })
+    }
+  }
+  let number = 3
+    function display3() {
+        if (number <= 10) {
+            number += 1
+            display2() 
+        } else {
+            displayScore()
+        }
+    }
+
 })
 
 
