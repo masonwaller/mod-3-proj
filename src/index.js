@@ -3,7 +3,7 @@
 // .then(res => displayUsers(res))
 
 window.addEventListener("DOMContentLoaded", (e) => {
-  let login = document.getElementById("name");
+  let login;
   let arr;
   let user;
   let score = 0;
@@ -13,6 +13,29 @@ window.addEventListener("DOMContentLoaded", (e) => {
         .then(res => {
             arr = res;
     })
+    menu()
+    function menu() {
+        let body = document.getElementById("cool")
+
+        let hey = document.createElement("h1")
+        hey.setAttribute("style", "font-size:75px")
+        hey.setAttribute("id", "title")
+        hey.innerText = "Guess That Actor!"
+        body.appendChild(hey)
+
+        let hi = document.createElement("h3")
+        hi.setAttribute("id", "instructions")
+        hi.innerText = "Please enter your name to begin:"
+        body.appendChild(hi)
+
+        let bye = document.createElement("form")
+        bye.setAttribute("id", "name")
+        bye.setAttribute("method", "post")
+        bye.innerHTML = `<input type="text" id="name_input" name="name"><br><br><input type="submit" value="Submit">`
+        body.appendChild(bye)
+
+        login = document.getElementById("name");
+    }
 
     login.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -197,28 +220,10 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
     }
     function backMenu() {
-        let body = document.getElementById("cool")
         let div = document.getElementById("bet")
         div.parentNode.removeChild(div)
 
-        let hey = document.createElement("h1")
-        hey.setAttribute("style", "font-size:75px")
-        hey.setAttribute("id", "title")
-        hey.innerText = "Guess That Actor!"
-        body.appendChild(hey)
-
-        let hi = document.createElement("h3")
-        hi.setAttribute("id", "instructions")
-        hi.innerText = "Please enter your name to begin:"
-        body.appendChild(hi)
-
-        let bye = document.createElement("form")
-        bye.setAttribute("id", "name")
-        bye.setAttribute("method", "post")
-        bye.innerHTML = `<input type="text" id="name_input" name="name"><br><br><input type="submit" value="Submit">`
-        body.appendChild(bye)
-
-        let login = document.getElementById("name");
+        menu()
     }
 })
 
