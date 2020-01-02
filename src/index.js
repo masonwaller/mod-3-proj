@@ -3,7 +3,7 @@
 // .then(res => displayUsers(res))
 
 window.addEventListener("DOMContentLoaded", (e) => {
-  const login = document.getElementById("name");
+  let login = document.getElementById("name");
   let arr;
   let user;
   let score = 0;
@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         user = arr.find(user => nameInput == user.name);
 
         if (user) {
-            console.log(user);
+            console.log(user.id);
         } else {
             fetch(`http://127.0.0.1:3000/api/v1/users`, {
             method: "POST",
@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         butt.innerHTML = "Next";
         login.remove();
         title.innerHTML = "Instructions:";
-        instructions.innerHTML = "You will have 10 seconds of a movie clip played. <br> Your job is to click the answer of the correct actor(s) or actress(es).  <br> Your score will be tallied up at the end.<br><br><br>";
+        instructions.innerHTML = "You will have 10 seconds of a movie clip played. <br> Your job is to click the answer of the correct actor(s) or actress(es), some may be voice actors :).  <br> Your score will be tallied up at the end.<br><br><br>";
         instructions.appendChild(butt);
 
         butt.addEventListener("click", (e) => {
@@ -81,6 +81,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         div.appendChild(div2)
         div2.setAttribute("id", "dope")
         div3.setAttribute("id", "sweet")
+        div.setAttribute("id", "bet")
 
         let vid = videos[Math.floor ( Math.random() * videos.length )]
         let ans = vid.answers
@@ -148,7 +149,77 @@ window.addEventListener("DOMContentLoaded", (e) => {
                 displayScore()
             }
         }
+    function displayScore() {
+        fetch(`http://127.0.0.1:3000/api/v1/scores`, {
+            method: "POST",
+            headers: {
+             Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+            body: JSON.stringify({user_id: user.id, score: score })
+        })
 
+        var paras = document.getElementsByClassName('button');
+        while(paras[0]) {
+        paras[0].parentNode.removeChild(paras[0]);
+        }
+
+        let div = document.getElementById("bet")
+        let div3 = document.getElementById("sweet")
+        let div2 = document.getElementById("dope")
+        div3.parentNode.removeChild(div3)
+        div2.parentNode.removeChild(div2)
+
+        let big = document.createElement("h1")
+        big.setAttribute("style", "font-size:75px")
+        let small = document.createElement("h3")
+        big.innerText = score
+        small.innerText = "Your final score is...."
+
+        div.appendChild(small)
+        div.appendChild(big)
+
+        let bu = document.createElement("button")
+        bu.innerText = "See all Scores"
+        div.appendChild(bu)
+        let butto = document.createElement("button")
+        butto.innerText = "Back To Menu"
+        div.appendChild(butto)
+
+        bu.addEventListener("click", (e) => {
+            e.preventDefault()
+            showAll()
+        })
+        butto.addEventListener("click", (e) => {
+            e.preventDefault()
+            backMenu()
+        })
+
+    }
+    function backMenu() {
+        let body = document.getElementById("cool")
+        let div = document.getElementById("bet")
+        div.parentNode.removeChild(div)
+
+        let hey = document.createElement("h1")
+        hey.setAttribute("style", "font-size:75px")
+        hey.setAttribute("id", "title")
+        hey.innerText = "Guess That Actor!"
+        body.appendChild(hey)
+
+        let hi = document.createElement("h3")
+        hi.setAttribute("id", "instructions")
+        hi.innerText = "Please enter your name to begin:"
+        body.appendChild(hi)
+
+        let bye = document.createElement("form")
+        bye.setAttribute("id", "name")
+        bye.setAttribute("method", "post")
+        bye.innerHTML = `<input type="text" id="name_input" name="name"><br><br><input type="submit" value="Submit">`
+        body.appendChild(bye)
+
+        let login = document.getElementById("name");
+    }
 })
 
 
