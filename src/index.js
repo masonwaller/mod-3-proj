@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         butt.innerHTML = "Next";
         login.remove();
         title.innerHTML = "Instructions:";
-        instructions.innerHTML = "You will have 10 seconds of a movie clip played. <br> Your job is to click the answer of the movie title.  <br> Your score will be tallied up at the end.<br><br><br>";
+        instructions.innerHTML = "You will have 10 seconds of a movie clip played. <br> Your job is to click the answer of the correct actor(s) or actress(es).  <br> Your score will be tallied up at the end.<br><br><br>";
         instructions.appendChild(butt);
 
         butt.addEventListener("click", (e) => {
@@ -65,12 +65,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
             videos = res;
         })
 
-    function timer(){
-        let num = 4500
-        var timer = setInterval(function(){
-            document.getElementById("vid").classList.remove("hide")
-        }, num);
-    }
 
     function displayMovies() {
         let body = document.getElementById("cool")
@@ -91,18 +85,11 @@ window.addEventListener("DOMContentLoaded", (e) => {
         let vid = videos[Math.floor ( Math.random() * videos.length )]
         let ans = vid.answers
         let correct = ans.find(element => element.correct == 1)
-        let v1 = `<iframe id="vid" class="hide" width="560" height="315" src= '${vid.url}&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
+        let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
 
-        timer()
 
         div3.innerHTML = v1
 
-        div3.addEventListener("mouseover", () => {
-            div3.classList.add("hide")
-        })
-        div3.addEventListener("mouseout", () => {
-            div3.classList.remove("hide")
-        })
 
         for (i=0;i<ans.length; i++) {
             let but = document.createElement("BUTTON")
@@ -131,18 +118,10 @@ window.addEventListener("DOMContentLoaded", (e) => {
         let vid = videos[Math.floor ( Math.random() * videos.length )]
         let ans = vid.answers
         let correct = ans.find(element => element.correct == 1)
-        let v1 = `<iframe id="vid" class="hide" width="560" height="315" src= '${vid.url}&controls=0&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
+        let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&controls=0&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
 
         div3.innerHTML = v1
 
-        div3.addEventListener("mouseover", () => {
-            div3.classList.add("hide")
-        })
-        div3.addEventListener("mouseout", () => {
-            div3.classList.remove("hide")
-        })
-
-        timer()
 
         for (i=0;i<ans.length; i++) {
             let but = document.createElement("BUTTON")
