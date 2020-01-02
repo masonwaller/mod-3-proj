@@ -5,6 +5,7 @@
 window.addEventListener("DOMContentLoaded", (e) => {
   let login;
   let arr;
+//   let scoreArr;
   let user;
   let score = 0;
 
@@ -109,7 +110,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         let vid = videos[Math.floor ( Math.random() * videos.length )]
         let ans = vid.answers
         let correct = ans.find(element => element.correct == 1)
-        let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
+        let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1&controls=0&loop=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
 
 
         div3.innerHTML = v1
@@ -224,6 +225,36 @@ window.addEventListener("DOMContentLoaded", (e) => {
         div.parentNode.removeChild(div)
 
         menu()
+    }
+    async function showAll() {
+        let scoreArr = await fetch("http://127.0.0.1:3000/api/v1/scores")
+
+        let result = await scoreArr.json()
+        let potato = result.sort(function(a, b){return b.score-a.score});
+
+        let div = document.getElementById("bet")
+        div.innerHTML = `<table id="table" style="width:100%">
+        <tr>
+          <th>Username</th>
+          <th>Score</th>
+        </tr>
+        </table>`
+        let table = document.getElementById("table")
+        let note = document.createElement("button")
+        note.innerText = "Back to Menu"
+        div.appendChild(note)
+        note.addEventListener("click", (e) => {
+            e.preventDefault()
+            backMenu()
+        })
+
+        for (i=0;i<=10;i++) {
+            let tab = document.createElement("tr")
+            tab.innerHTML = `<th>${potato[i].user.name}</th>
+                            <th>${potato[i].score}</th>`
+            table.appendChild(tab)
+        }
+
     }
 })
 
