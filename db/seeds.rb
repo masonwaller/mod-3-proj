@@ -19,7 +19,7 @@ Video.create(url: "https://www.youtube.com/embed/PSZxmZmBfnU?start=0&end=15") # 
 Video.create(url: "https://www.youtube.com/embed/VMqVrKoLQt4?start=10&end=25") # The Witcher
 Video.create(url: "https://www.youtube.com/embed/cbQZ8GK2usU?start=0&end=15") # Elf
 Video.create(url: "https://www.youtube.com/embed/T31h3L_egm8?start=90&end=105") # Get Out
-Video.create(url: "https://www.youtube.com/embed/1abIOEhegfU?start=10&end=25") # In the Shadow of the Moon
+Video.create(url: "https://www.youtube.com/embed/1abIOEhegfU?start=10&end=25") # The proposal
 Video.create(url: "https://www.youtube.com/embed/gTdlIeHzVFo?start=0&end=15") # I am Mother
 Video.create(url: "https://www.youtube.com/embed/tkRvLFdrbTU?start=10&end=25") # Nacho Libre
 Video.create(url: "https://www.youtube.com/embed/RD2YJrvd71Y?start=0&end=15") # Dumb & Dumber
@@ -57,10 +57,10 @@ Answer.create(answer: "Martin Hewitt & Brooke Shields", correct: 0, video_id: 4)
 Answer.create(answer: "Matt Dillon & Demi Moore", correct: 0, video_id: 4)
 
 # The Lord of the Rings
-Answer.create(answer: "Ian McKellen & Bernard Hill", correct: 0, video_id: 5)
+Answer.create(answer: "Ian McKellen & Bernard Hill", correct: 1, video_id: 5)
 Answer.create(answer: "David Wenham & Billy Boyd", correct: 0, video_id: 5)
 Answer.create(answer: "Karl Urban & Brad Dourif", correct: 0, video_id: 5)
-Answer.create(answer: "Patrick Stewart & Christopher Lee", correct: 1, video_id: 5)
+Answer.create(answer: "Patrick Stewart & Christopher Lee", correct: 0, video_id: 5)
 
 # Jurassic Park
 Answer.create(answer: "Jeff Goldblum", correct: 0, video_id: 6)
@@ -140,41 +140,43 @@ Answer.create(answer: "Chris Evans", correct: 0, video_id: 18)
 Answer.create(answer: "Ben Affleck", correct: 0, video_id: 18)
 Answer.create(answer: "Matt Bomer", correct: 0, video_id: 18)
 
-#
+# Elf
 Answer.create(answer: "Mark Wahlberg", correct: 0, video_id: 19)
 Answer.create(answer: "John Reilly", correct: 0, video_id: 19)
 Answer.create(answer: "Rob Schneider", correct: 0, video_id: 19)
 Answer.create(answer: "Will Ferrell", correct: 1, video_id: 19)
 
-#
+# Get Out
 Answer.create(answer: "Chadwick Boseman", correct: 0, video_id: 20)
 Answer.create(answer: "Ryan Coogler", correct: 0, video_id: 20)
 Answer.create(answer: "Daniel Kaluuya", correct: 1, video_id: 20)
 Answer.create(answer: "Stephan James", correct: 0, video_id: 20)
 
-#
+# The Proposal
 Answer.create(answer: "Chris Hemsworth & Jennifer Aniston", correct: 0, video_id: 21)
 Answer.create(answer: "Bradley Cooper & Julia Roberts", correct: 0, video_id: 21)
 Answer.create(answer: "Ryan Reynolds & Sandra Bullock", correct: 1, video_id: 21)
 Answer.create(answer: "Jake Gyllenhaal & Halle Berry", correct: 0, video_id: 21)
 
-#
+#I am Mother
 Answer.create(answer: "Clara Rugaard", correct: 1, video_id: 22)
 Answer.create(answer: "Dianna Agron", correct: 0, video_id: 22)
 Answer.create(answer: "Kay Panabaker", correct: 0, video_id: 22)
 Answer.create(answer: "Ashley Benson", correct: 0, video_id: 22)
 
-#
+#Nacho Libre
 Answer.create(answer: "Ben Stiller & Moises Arias", correct: 0, video_id: 23)
 Answer.create(answer: "Adam Sandler & Kristyan Ferrer", correct: 0, video_id: 23)
 Answer.create(answer: "Jack Black & Hector Jimenez", correct: 1, video_id: 23)
 Answer.create(answer: "Dave Grohl & Harold Torres", correct: 0, video_id: 23)
 
+#Dumb & Dumber
 Answer.create(answer: "Ben Stiller & Owen Wilson", correct: 0, video_id: 24)
 Answer.create(answer: "Jeff Daniels & Jim Carrey", correct: 1, video_id: 24)
 Answer.create(answer: "Adam Sandler & Vince Vaughn", correct: 0, video_id: 24)
 Answer.create(answer: "Will Ferrell & Steve Carrell", correct: 0, video_id: 24)
 
+# Aquaman
 Answer.create(answer: "Richard Madden", correct: 0, video_id: 25)
 Answer.create(answer: "Oscar Isaac", correct: 0, video_id: 25)
 Answer.create(answer: "Jason Momoa", correct: 1, video_id: 25)
@@ -186,7 +188,7 @@ Answer.create(answer: "Josh Hutcherson & Jennifer Lawrence", correct: 1, video_i
 Answer.create(answer: "Dylan O'Brien & Emma Watson", correct: 0, video_id: 26)
 Answer.create(answer: "Jai Courtney & Kate Winslet", correct: 0, video_id: 26)
 
-# 
+# 27 dresses
 Answer.create(answer: "Sam Claflin & Emma Stone", correct: 0, video_id: 27)
 Answer.create(answer: "Ryan Gosling & Drew Barrymore", correct: 0, video_id: 27)
 Answer.create(answer: "Jude Law & Kate Winslet", correct: 0, video_id: 27)

@@ -79,7 +79,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
         butt.addEventListener("click", (e) => {
             e.preventDefault();
             displayMovies();
-            console.log(user);
         });
         }
     let videos;
@@ -111,7 +110,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         let ans = vid.answers
         let correct = ans.find(element => element.correct == 1)
         let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1&controls=0&loop=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
-
+        console.log(correct)
 
         div3.innerHTML = v1
 
@@ -120,11 +119,11 @@ window.addEventListener("DOMContentLoaded", (e) => {
             let but = document.createElement("BUTTON")
             but.classList.add("button")
             div2.appendChild(but)
-            but.innerHTML = ans[i].answer
+            but.innerText = ans[i].answer
 
             but.addEventListener("click", (e) => {
                 e.preventDefault()
-                if (but.innerHTML == correct.answer) {
+                if (but.innerText == correct.answer) {
                     score += 1
                 }
                 console.log(score)
@@ -152,11 +151,11 @@ window.addEventListener("DOMContentLoaded", (e) => {
             let but = document.createElement("BUTTON")
             div2.appendChild(but)
             but.classList.add("button")
-            but.innerHTML = ans[i].answer
+            but.innerText = ans[i].answer
 
             but.addEventListener("click", (e) => {
                 e.preventDefault()
-                if (but.innerHTML == correct.answer) {
+                if (but.innerText == correct.answer) {
                     score += 1
                 }
                 console.log(score)
