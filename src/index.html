@@ -17,8 +17,20 @@
         background-size: cover;
         background-repeat: no-repeat;
       }
-      table, th, td {
-      border: 1px solid black;
+      table {
+        border-collapse: collapse;
+      }
+      th {
+        height: 35px;
+      }
+      table,
+      th,
+      td {
+        border-bottom: 1px solid #ddd;
+        /* border: 1px solid black; */
+      }
+      tr:hover {
+        background-color: #F5F5F5;
       }
     </style>
     <script src="./index.js"></script>
