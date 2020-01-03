@@ -42,6 +42,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
     login.addEventListener("submit", (event) => {
         event.preventDefault();
         let nameInput = document.getElementById("name_input").value;
+        if (nameInput) {
         user = arr.find(user => nameInput == user.name);
 
         if (user) {
@@ -62,7 +63,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
           })
       );
     }
-    displayInstructions();
+    displayInstructions();}
     });
 
     function displayInstructions() {
