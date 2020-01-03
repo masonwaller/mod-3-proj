@@ -5,9 +5,10 @@
 window.addEventListener("DOMContentLoaded", (e) => {
   let login;
   let arr;
-//   let scoreArr;
   let user;
   let score = 0;
+
+  let unique;
 
     fetch("http://127.0.0.1:3000/api/v1/users")
         .then(res => res.json())
@@ -106,7 +107,16 @@ window.addEventListener("DOMContentLoaded", (e) => {
         div3.setAttribute("id", "sweet")
         div.setAttribute("id", "bet")
 
-        let vid = videos[Math.floor ( Math.random() * videos.length )]
+        let videoss = [];
+        for (i=0;i<30;i++) {videoss.push(videos[Math.floor ( Math.random() * videos.length )]) }
+        unique = Array.from(new Set(videoss.map(a => a.id))).map(id => {
+            return videoss.find(a => a.id === id)
+            })
+        
+        
+        let vid = unique.pop()
+        console.log(vid)
+        
         let ans = vid.answers
         let correct = ans.find(element => element.correct == 1)
         let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1&controls=0&loop=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
@@ -139,10 +149,10 @@ window.addEventListener("DOMContentLoaded", (e) => {
         let div3 = document.getElementById("sweet")
         let div2 = document.getElementById("dope")
 
-        let vid = videos[Math.floor ( Math.random() * videos.length )]
+        let vid = unique.pop()
         let ans = vid.answers
         let correct = ans.find(element => element.correct == 1)
-        let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&controls=0&autoplay=1' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
+        let v1 = `<iframe id="vid" width="560" height="315" src= '${vid.url}&autoplay=1&controls=0' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>`
 
         div3.innerHTML = v1
 
