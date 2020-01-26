@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", e => {
       if (user) {
         console.log(user.id);
       } else {
-        fetch(`http://127.0.0.1:3000/api/v1/users`, {
+        fetch(`https://agile-reaches-30710.herokuapp.com/users`, {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", e => {
           },
           body: JSON.stringify({ name: nameInput })
         }).then(() =>
-          fetch("http://127.0.0.1:3000/api/v1/users")
+          fetch("https://agile-reaches-30710.herokuapp.com/users")
             .then(res => res.json())
             .then(res => {
               user = res[res.length - 1];
@@ -72,7 +72,7 @@ window.addEventListener("DOMContentLoaded", e => {
       });
     }
     let videos;
-    fetch("http://127.0.0.1:3000/api/v1/videos")
+    fetch("https://agile-reaches-30710.herokuapp.com/videos")
       .then(res => res.json())
       .then(res => {
         videos = res;
@@ -158,7 +158,7 @@ window.addEventListener("DOMContentLoaded", e => {
       }
     }
     function displayScore() {
-      fetch(`http://127.0.0.1:3000/api/v1/scores`, {
+      fetch(`https://agile-reaches-30710.herokuapp.com/scores`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -203,7 +203,7 @@ window.addEventListener("DOMContentLoaded", e => {
       menu();
     }
     async function showAll() {
-      let scoreArr = await fetch("http://127.0.0.1:3000/api/v1/scores");
+      let scoreArr = await fetch("https://agile-reaches-30710.herokuapp.com/scores");
       let result = await scoreArr.json();
       let potato = result.sort(function(a, b) {
         return b.score - a.score;
