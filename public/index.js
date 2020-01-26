@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", e => {
     let user;
     let score = 0;
     let unique;
-    fetch("http://127.0.0.1:3000/api/v1/users")
+    fetch("https://agile-reaches-30710.herokuapp.com/users")
       .then(res => res.json())
       .then(res => {
         arr = res;
