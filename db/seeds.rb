@@ -1,4 +1,8 @@
+User.create(name: "Mason")
+
+
 # Videos
+
 Video.create(url: "https://www.youtube.com/embed/GQ5ICXMC4xY?start=5&end=15") # Gone With The Wind
 Video.create(url: "https://www.youtube.com/embed/x2WK_eWihdU?start=0&end=15") # Pulp Fiction
 Video.create(url: "https://www.youtube.com/embed/CJh59vZ8ccc?start=10&end=25") # Forrest Gump
